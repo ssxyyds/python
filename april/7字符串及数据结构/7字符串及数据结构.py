@@ -76,6 +76,71 @@ def list_test():
     print(sorted(list2))
 
 
+def set_test():
+    """
+    集合(set)操作
+    :return:
+    """
+    # 创建集合set1，包含1、2、3、4、3这五个元素
+    set1 = {1, 2, 3, 4, 3}
+    # 创建一个range对象，包含1到4这四个元素
+    set2 = range(1, 5)
+    # 创建一个元组，包含1、2、3、5、6这五个元素
+    set3 = (1, 2, 3, 5, 6)
+
+    # 创建集合set4的推导式语法
+    # 包含1到99中小于10的整数
+    set4 = set([num for num in range(1, 100) if num < 10])
+
+    # 输出各集合的数据类型
+    # set1为集合类型set，set2为range类型，set3为tuple类型
+    print(f'set1:{type(set1)},set2:{type(set2)},set3:{type(set3)}')
+
+    # 使用集合运算符&、|、-、^对集合进行操作
+    # &运算符求交集，输出set1和set2的交集
+    print(f'set1 & set(set2) :{set1 & set(set2)}')  # {1, 2, 3, 4}
+    # |运算符求并集，输出set1和set3的并集
+    print(f'set1 | set(set3) :{set1 | set(set3)}')  # {1, 2, 3, 4, 5, 6}
+    # -运算符求差集，输出set1和set2的差集
+    # 即在set1中出现但不在set2中出现的元素
+    print(f'set1 - set(set2) :{set1 - set(set2)}')  # {3, 4}
+    # ^运算符求对称差集，输出set1和set4的对称差集
+    # 即在set1和set4中出现，但不同时在两者中出现的元素
+    print(f'set1 ^ set4 :{set1 & set4}')  # {1, 2, 3, 4}
+
+
+def tuple_test():
+    """
+    元组
+    :return:
+    """
+    t = ("ssx", 123, "hhh")
+    for i in t:
+        print(i)
+    # 元组转换为列表
+    ls = list(t)
+    # 列表转换为元组
+    t = tuple(ls)
+
+
+def dict_test():
+    # 创建一个字典d1
+    d1 = {"k1": "v1", "k2": "v2"}
+    print(d1.items())
+    # 获取d1中键为'k3'的值，如果键不存在则返回默认值'v3'
+    print(d1.get('k3', 'v3'))
+    print(d1)
+
+    # 创建一个字典d2
+    d2 = dict(one=1, two=2, three=3, four=4, five=5, six=6, seven=7, eight=8, nine=9, ten=10)
+    # 修改d2中键为'one'的值为1111
+    d2.update(one=1111)
+    print(d2)
+
+
 if __name__ == '__main__':
     # string()
-    list_test()
+    # list_test()
+    # set_test()
+    # tuple_test()
+    dict_test()
